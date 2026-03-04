@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis XV</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+</head>
+
+<body>
+
+
+
+    <section class="hero" data-aos="fade-up">
+
+        <h1 class="titulo">Mis XV Años</h1>
+
+        <p class="nombre">Luna</p>
+
+        <p class="fecha">27 de Julio 2026</p>
+
+        <button class="btn">Ver invitación</button>
+
+        <div class="music-player">
+            <button id="playPause">⏸</button>
+        </div>
+
+    </section>
+
+    <section class="galeria" data-aos="zoom-in">
+
+        <h2>Mis Momentos</h2>
+
+        <div class="slider">
+
+            <img src="img/foto1.png" data-aos="fade-up">
+            <img src="img/foto2.png" data-aos="fade-up">
+            <img src="img/foto3.png" data-aos="fade-up">
+            <img src="img/foto4.png" data-aos="fade-up">
+
+        </div>
+
+    </section>
+
+
+
+    <section class="contador" data-aos="fade-up">
+
+        <h2>Faltan</h2>
+
+        <div class="countdown">
+
+            <div class="time">
+                <span id="dias">0</span>
+                <p>Días</p>
+            </div>
+
+            <div class="time">
+                <span id="horas">0</span>
+                <p>Horas</p>
+            </div>
+
+            <div class="time">
+                <span id="minutos">0</span>
+                <p>Min</p>
+            </div>
+
+            <div class="time">
+                <span id="segundos">0</span>
+                <p>Seg</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="evento" data-aos="fade-up">
+
+        <h2>Detalles del Evento</h2>
+
+        <div class="evento-info">
+
+            <p class="evento-fecha">📅 27 de Julio 2026</p>
+
+            <p class="evento-lugar">📍 Salón Jardín Luna</p>
+
+            <a class="mapa-btn"
+                href="https://www.google.com/maps/place/19%C2%B041'28.5%22N+101%C2%B013'21.9%22W/@19.6912424,-101.2253359,17z/data=!3m1!4b1!4m4!3m3!8m2!3d19.6912424!4d-101.222761?hl=es&entry=ttu&g_ep=EgoyMDI2MDMwMS4xIKXMDSoASAFQAw%3D%3D"
+                target="_blank">
+
+                Ver ubicación
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="rsvp" data-aos="fade-up">
+
+        <h2>Confirmar asistencia</h2>
+
+        <p>Por favor confirma tu asistencia</p>
+
+        <a class="rsvp-btn" href="https://forms.gle/p1TZpDv8uyw7EGMo8" target="_blank">
+
+            Confirmar asistencia
+
+        </a>
+
+    </section>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+    </script>
+
+</body>
+
+</html>
