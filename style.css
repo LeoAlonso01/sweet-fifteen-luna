@@ -1,14 +1,59 @@
+:root {
+    /* COMENTARIO PARA CAMBIAR COLORES: 
+       Puedes cambiar estos valores para ajustar los tonos de la página. 
+       --color-primario: El rosa vibrante de la fiesta.
+       --color-secundario: El negro profundo base.
+       --color-texto: Color para el texto legible. 
+    */
+    --color-primario: #ff007f;
+    /* Rosa Hot Pink */
+    --color-secundario: #000000;
+    /* Negro */
+    --color-acento: #ff66b2;
+    /* Rosa claro/brillante */
+    --color-texto: #ffffff;
+    /* Blanco */
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #000;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(180deg, #000, #111, #000);
-    color: white;
+    background: var(--color-secundario);
+    color: var(--color-texto);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fondo Global Animado */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(255, 0, 127, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 127, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(26, 26, 26, 1) 0%, var(--color-secundario) 100%);
+    z-index: -1;
+    animation: party-lights 8s infinite alternate ease-in-out;
+}
+
+@keyframes party-lights {
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
 }
 
 .hero {
@@ -19,15 +64,32 @@ body {
     align-items: center;
     text-align: center;
     padding: 20px;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
 }
+
+
 
 .titulo {
     font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
-    background: linear-gradient(45deg, #d4af37, #f6e27a, #d4af37);
-    background-clip: unset;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+    color: var(--color-primario);
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.5), 0 0 20px rgba(255, 0, 127, 0.3);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: aparecer 2s ease forwards, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 20px rgba(255, 0, 127, 0.8), 0 0 30px var(--color-primario);
+    }
 }
 
 .nombre {
@@ -47,17 +109,24 @@ body {
 
 .btn {
     margin-top: 30px;
-    padding: 12px 25px;
+    padding: 12px 30px;
     border: none;
     border-radius: 30px;
-    background: #d4af37;
-    color: black;
+    background: var(--color-primario);
+    color: white;
     font-weight: bold;
     cursor: pointer;
-
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    transition: 0.3s;
     opacity: 0;
     animation: aparecer 2s ease forwards;
     animation-delay: 2s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: var(--color-acento);
+    box-shadow: 0 0 25px var(--color-primario);
 }
 
 .titulo {
@@ -74,18 +143,21 @@ body {
 }
 
 #playPause {
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 25px;
-    border: none;
-    background: white;
-    color: black;
+    border: 2px solid var(--color-primario);
+    background: transparent;
+    color: white;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
 }
 
 #playPause:hover {
-    transform: scale(1.05);
+    background: var(--color-primario);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--color-primario);
 }
 
 .contador {
@@ -106,17 +178,24 @@ body {
 }
 
 .time {
-    background: #000;
+    background: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 15px;
-    min-width: 80px;
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    min-width: 90px;
+    border: 1px solid rgba(255, 0, 127, 0.2);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.1);
+    transition: 0.3s;
+}
+
+.time:hover {
+    transform: scale(1.05);
+    border-color: var(--color-primario);
 }
 
 .time span {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #d4af37;
+    color: var(--color-primario);
 }
 
 .time p {
@@ -127,7 +206,7 @@ body {
 .evento {
     padding: 80px 20px;
     text-align: center;
-    background: #000;
+    background: transparent;
 }
 
 .evento h2 {
@@ -150,16 +229,19 @@ body {
 
 .mapa-btn {
     text-decoration: none;
-    background: #d4af37;
-    color: black;
-    padding: 12px 20px;
+    background: var(--color-primario);
+    color: white;
+    padding: 12px 25px;
     border-radius: 25px;
     font-weight: bold;
     transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
 }
 
 .mapa-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: var(--color-acento);
+    box-shadow: 0 0 20px var(--color-primario);
 }
 
 .galeria {
@@ -184,39 +266,45 @@ body {
     width: 250px;
     height: 350px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
     scroll-snap-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background: #000;
+    padding: 8px;
+    border: 2px solid #000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 10px rgba(255, 0, 127, 0.3);
+    transition: 0.3s;
+}
+
+.slider img:hover {
+    transform: scale(1.02);
+    border-color: var(--color-primario);
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
 }
 
 .rsvp {
     padding: 80px 20px;
     text-align: center;
-    background: #000;
-}
-
-.rsvp h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.rsvp p {
-    margin-bottom: 30px;
-    opacity: 0.8;
+    background: transparent;
 }
 
 .rsvp-btn {
-    background: #d4af37;
-    color: black;
-    padding: 15px 30px;
+    background: var(--color-primario);
+    color: white;
+    display: inline-block;
+    padding: 20px 30px;
+    margin-top: 2rem;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+
 }
 
 .rsvp-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: var(--color-acento);
+    box-shadow: 0 0 25px var(--color-primario);
 }
 
 @keyframes aparecer {
